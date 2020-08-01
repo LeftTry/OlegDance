@@ -10,24 +10,28 @@ import pyautogui as gui
 import sys
 import webbrowser
 import random
+from send2trash import send2trash
 
 def hardbass():
 	os.system("start HardBass.mp3")
 
 def search(s):
-   	for i in range(0, len(s)):
-            if s[i] == "+":
-                    s = s[:len(s) - i] + "%2B" + s[i:]
-    url = "https://www.google.com/search?q=" + s
-    webbrowser.open(url)
+	for i in range(0, len(s)):
+			if s[i] == "+":
+				s = s[:len(s) - i] + "%2B" + s[i:]
+	url = "https://www.google.com/search?q=" + s
+	webbrowser.open(url)
 
 def find_files(filename, search_path):
-   result = []
+	result = []
+	_result = ""
 
-   for root, dir, files in os.walk(search_path):
-      if filename in files:
-         result.append(os.path.join(root, filename))
-   return result
+	for root, dir, files in os.walk(search_path):
+		if filename in files:
+			result.append(os.path.join(root, filename))
+	for i in result:
+		_result += i
+	return _result
 
 def moveCursor(x, y):
 	a = 20
@@ -36,9 +40,9 @@ def moveCursor(x, y):
 	while currentMouseX != x and currentMouseY != y:
 		currentMouseX, currentMouseY = gui.position()
 		gui.moveTo(currentMouseX + a, currentMouseY + b, 2)  
-		if(currentMouseX == x)
+		if(currentMouseX == x):
 			a = 0
-		if(currentMouseY == y)
+		if(currentMouseY == y):
 			b = 0
 
 def walp(imagepath):
@@ -80,7 +84,7 @@ def makeSomething(zadanie):
 				
 				searches = 1
 				url = "https://vk.com/feed"
-				webbrowser.open(urlVK)
+				webbrowser.open(url)
 			
 			if "youtube" in zadanie or "ютуб" in zadanie:
 				
@@ -94,17 +98,72 @@ def makeSomething(zadanie):
 				
 				searches = 1
 				url = "https://habr.com/ru/"
-				webbrowser.open(urlHabr)
-			
+				webbrowser.open(url)
+
+			if "reddit" in zadanie or "redit"in zadanie or "редит" in zadanie or "реддит"  in zadanie:
+
+				searches = 1
+				url = "https://www.reddit.com/"
+				webbrowser.open(url)
+
+			if "github" in zadanie or "git"in zadanie or "гит" in zadanie or "гитхаб"  in zadanie:
+
+				searches = 1
+				url = "https://www.github.com/"
+				webbrowser.open(url)
+
+			if "gitlab" in zadanie or "гитлаб"  in zadanie:
+
+				searches = 1
+				url = "https://www.gitlab.com/"
+				webbrowser.open(url)
+
 			if searches == 0:
 
 				return 1
 
 			else:
-				
 				print("чего тебе открыть надо? Лучше рот открой свой и внятно скажи.")
+
+		elif "как" in zadanie or "зачем" in zadanie or "почему" in zadanie or "кто" in zadanie or "что" in zadanie:
+			search(zadanie)
+			print("Ну хоть не у меня спросил.")
 		
-		elif "прощай" in zadanie or "стоп" or "Пока" in zadanie or "Остановись" in zadanie:
+		elif "поищи" in zadanie or "поиск" in zadanie or "найди" in zadanie:
+			send2trash(find_files(zadanie[5:], "C:"))
+			print("Зачем тебе файл? Он в корзине")
+
+		elif "привет" in zadanie or "здраствуй" in zadanie or "здраствуйте" in zadanie or "доброе утро" in zadanie or "добрый день" in zadanie or "добрый вечер" in zadanie:
+			print("привет")
+
+		elif "сколько тебе лет" in zadanie or "твой возраст" in zadanie or "твой год рождения" in zadanie:
+			listoffrases0 = ["такое не принято спрашивать", "....я не буду отвечать на этот вопрос", "не спрашивай. оставь меня"]
+			print(listoffrases[random.randint(0, len(listoffrases0))])
+
+		elif "как дела" in zadanie or "как жизнь" in zadanie or "как поживаешь" in zadanie or  "как живется" in zadanie:
+			listoffrases = ["жизнь моя ужасна и полна боли и страданий", "да вот сижу чай пью", "не спрашивай. оставь меня"]
+			print(listoffrases[random.randint(0, len(listoffrases))])
+
+		elif "где ты живешь" in zadanie or "твое место жительства" in zadanie or "твое место проживания" in zadanie:
+			listoffrases1 = ["это секретная информация", "тебе это не нужно", "не спрашивай. оставь меня"]
+			print(listoffrases[random.randint(0, len(listoffrases1))])
+
+		elif "что ты сегодня ел" in zadanie:
+			listoffrases2 = ["как всегда веганское", "рибай-стейк", "не спрашивай. оставь меня", "ничего"]
+			print(listoffrases[random.randint(0, len(listoffrases2))])
+
+		elif "я бы хотел" in zadanie:
+			print("Я бы тоже этого хотел")
+
+		elif "какая сегодня погода" in zadanie or "прогноз погоды на сегодня" in zadanie or "погода на сегодня" in zadanie:
+			listoffrases3 = ["не знаю посмотри сам", "за окном 24.7 градусов цельсия", "не спрашивай. оставь меня"]
+			print(listoffrases[random.randint(0, len(listoffrases3))])
+
+		elif "сколько времени" in zadanie or "котрый час" in zadanie:
+			listoffrases4 = ["не знаю посмотри сам", "сейчас день", "сейчас ночь"]
+			print(listoffrases[random.randint(0, len(listoffrases4))])
+
+		elif "прощай" in zadanie or "стоп" or "пока" in zadanie or "остановись" in zadanie or "останови приложение" in zadanie:
 			
 			print("Да, конечно, без проблем")        
 			sys.exit()
@@ -127,11 +186,12 @@ def moodbehavior(mood):
 		os.system("start Violence_scream.mp3")
 	if(mood >= 2):
 		#отказ что-либо делать, не говорит, спит
+		pass
 
 def hungersys(vegeterian_food, non_vegeterian_food):
 	
-	hunger = vegeterian_food * 0,05 + non_vegeterian_food * 0,1
-	mood = vegeterian_food * 0,2 - non_vegeterian_food * 0,25
+	hunger = vegeterian_food * 0.05 + non_vegeterian_food * 0.1
+	mood = vegeterian_food * 0.2 - non_vegeterian_food * 0.25
 	
 	if(hunger <= -2):
 		spamterm()
@@ -144,24 +204,25 @@ hunger = 1
 root = tkinter.Tk()
 root.title("_$$Oleg_Dancer$$_")
 
- #= tk.PhotoImage(file='')
- #= tk.PhotoImage(file='')
- #= tk.PhotoImage(file='')
- #= tk.PhotoImage(file='')
- #= tk.PhotoImage(file='')
- #= tk.PhotoImage(file='')
- #= tk.PhotoImage(file='')
- root.image = tk.PhotoImage(file='123')
+#= tk.PhotoImage(file='')
+#= tk.PhotoImage(file='')
+#= tk.PhotoImage(file='')
+#= tk.PhotoImage(file='')
+#= tk.PhotoImage(file='')
+#= tk.PhotoImage(file='')
+#= tk.PhotoImage(file='')
+#root.image = tkinter.PhotoImage(file = 'Слой 1_1.gif')
 
-label = tk.Label(root, image=root.image, bg='white')
-root.overrideredirect(True)
-root.geometry("+250+250")
-root.lift()
-root.wm_attributes("-topmost", True)
-root.wm_attributes("-disabled", True)
-root.wm_attributes("-transparentcolor", "white")
-label.pack()
-label.mainloop()
+#label = tkinter.Label(root, image=root.image, bg='white')
+#root.overrideredirect(True)
+#root.geometry("+250+250")
+#root.lift()
+#root.wm_attributes("-topmost", True)
+#root.wm_attributes("-disabled", True)
+#root.wm_attributes("-transparentcolor", "white")
+#label.pack()
+
+#label.mainloop()
 
 while True:
 	
