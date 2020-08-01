@@ -12,4 +12,3 @@ def moveCursor(x, y):
 			a = 0
 		if(currentMouseY == y)
 			b = 0
-moveCursor(100, 1000)
