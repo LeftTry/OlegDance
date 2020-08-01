@@ -14,4 +14,6 @@ def moodbehavior(mood):
 def hungrysys(vegeterian_food, non_vegeterian_food):
 	hungriness = vegeterian_food * 0,05 + non_vegeterian_food * 0,1
 	mood = vegeterian_food * 0,2 - non_vegeterian_food * 0,25
+	if(hungriness == 0)
+		#spamterminals
 
