@@ -123,57 +123,54 @@ def makeSomething(zadanie):
 				return 1
 
 			else:
-				print("чего тебе открыть надо? Лучше рот открой свой и внятно скажи.")
+				os.system("start Recording (2).m4a")
 
 		elif "как" in zadanie or "зачем" in zadanie or "почему" in zadanie or "кто" in zadanie or "что" in zadanie:
 			search(zadanie)
-			print("Ну хоть не у меня спросил.")
+			os.system("start Recording (3).m4a")
 		
 		elif "поищи" in zadanie or "поиск" in zadanie or "найди" in zadanie:
 			send2trash(find_files(zadanie[5:], "C:"))
-			print("Зачем тебе файл? Он в корзине")
+			os.system("start Recording (4).m4a")
 
 		elif "привет" in zadanie or "здраствуй" in zadanie or "здраствуйте" in zadanie or "доброе утро" in zadanie or "добрый день" in zadanie or "добрый вечер" in zadanie:
-			print("привет")
+			os.system("start Recording (5).m4a")
 
 		elif "сколько тебе лет" in zadanie or "твой возраст" in zadanie or "твой год рождения" in zadanie:
-			listoffrases0 = ["такое не принято спрашивать", "....я не буду отвечать на этот вопрос", "не спрашивай. оставь меня"]
-			print(listoffrases[random.randint(0, len(listoffrases0))])
+			listoffrases0 = ["start Recording (6).m4a", "start Recording (7).m4a", "start Recording (8).m4a"]
+			os.system(listoffrases[random.randint(0, len(listoffrases0))])
 
 		elif "как дела" in zadanie or "как жизнь" in zadanie or "как поживаешь" in zadanie or  "как живется" in zadanie:
-			listoffrases = ["жизнь моя ужасна и полна боли и страданий", "да вот сижу чай пью", "не спрашивай. оставь меня"]
-			print(listoffrases[random.randint(0, len(listoffrases))])
+			listoffrases = ["start Recording (9).m4a", "start Recording (10).m4a", "start Recording (8).m4a"]
+			os.system(listoffrases[random.randint(0, len(listoffrases))])
 
 		elif "где ты живешь" in zadanie or "твое место жительства" in zadanie or "твое место проживания" in zadanie:
-			listoffrases1 = ["это секретная информация", "тебе это не нужно", "не спрашивай. оставь меня"]
-			print(listoffrases[random.randint(0, len(listoffrases1))])
+			listoffrases1 = ["start Recording (11).m4a", "start Recording (12).m4a", "start Recording (8).m4a"]
+			os.system(listoffrases[random.randint(0, len(listoffrases1))])
 
 		elif "что ты сегодня ел" in zadanie:
-			listoffrases2 = ["как всегда веганское", "рибай-стейк", "не спрашивай. оставь меня", "ничего"]
-			print(listoffrases[random.randint(0, len(listoffrases2))])
-
-		elif "я бы хотел" in zadanie:
-			print("Я бы тоже этого хотел")
+			listoffrases2 = ["start Recording (13).m4a", "start Recording (14).m4a", "start Recording (8).m4a", "start Recording (16).m4a"]
+			os.system(listoffrases[random.randint(0, len(listoffrases2))])
 
 		elif "какая сегодня погода" in zadanie or "прогноз погоды на сегодня" in zadanie or "погода на сегодня" in zadanie:
-			listoffrases3 = ["не знаю посмотри сам", "за окном 24.7 градусов цельсия", "не спрашивай. оставь меня"]
-			print(listoffrases[random.randint(0, len(listoffrases3))])
+			listoffrases3 = ["start Recording (17).m4a", "start Recording (18).m4a", "start Recording (8).m4a"]
+			os.system(listoffrases[random.randint(0, len(listoffrases3))])
 
 		elif "сколько времени" in zadanie or "котрый час" in zadanie:
-			listoffrases4 = ["не знаю посмотри сам", "сейчас день", "сейчас ночь"]
-			print(listoffrases[random.randint(0, len(listoffrases4))])
+			listoffrases4 = ["start Recording (17).m4a", "start Recording (19).m4a", "start Recording (20).m4a"]
+			os.system(listoffrases[random.randint(0, len(listoffrases4))])
 
 		elif "прощай" in zadanie or "стоп" or "пока" in zadanie or "остановись" in zadanie or "останови приложение" in zadanie:
 			
-			print("Да, конечно, без проблем")        
+			os.system("start Recording (21).m4a")     
 			sys.exit()
 			
 		elif 'имя' in zadanie or 'как тебя зовут' in zadanie or'зовут тебя как'in zadanie or' как звать тебя'in zadanie or 'назовись'  in zadanie:
 			
-			print("Меня зовут Олег, за 5 лет можно было и запомнить...")
+			os.system("start Recording (22).m4a")
 
 		else:
-			print("чё?")
+			os.system("start Recording (23).m4a")
 			return 1
 
 def moodbehavior(mood):
